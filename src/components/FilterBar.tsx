@@ -3,13 +3,12 @@
 import { motion } from "framer-motion";
 import {
   Search,
-  Filter,
   ArrowUpDown,
   ListFilter,
   Clock,
   Flag,
-  AlphabeticalSort,
   Calendar,
+  ArrowDownAZ
 } from "lucide-react";
 import { FilterOption, SortOption } from "@/types/todo";
 
@@ -34,7 +33,7 @@ const sorts: { value: SortOption; label: string; icon: typeof Clock }[] = [
   { value: "createdAt", label: "作成日", icon: Clock },
   { value: "dueDate", label: "期限", icon: Calendar },
   { value: "priority", label: "優先度", icon: Flag },
-  { value: "title", label: "名前順", icon: AlphabeticalSort },
+  { value: "title", label: "名前順", icon: ArrowDownAZ },
 ];
 
 export const FilterBar = ({
@@ -75,9 +74,9 @@ export const FilterBar = ({
               onClick={() => onFilterChange(f.value)}
               className={`relative px-4 py-2 text-sm font-medium rounded-lg transition-colors
                         ${filter === f.value
-                          ? "text-ink-800"
-                          : "text-ink-500 hover:text-ink-700"
-                        }`}
+                  ? "text-ink-800"
+                  : "text-ink-500 hover:text-ink-700"
+                }`}
             >
               {filter === f.value && (
                 <motion.div
